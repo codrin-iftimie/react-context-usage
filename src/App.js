@@ -14,7 +14,8 @@ const article = {
     pellentesque quam. Sed elementum, lectus non tempor malesuada, risus massa consectetur tellus,
     sed vehicula augue ipsum et ligula. In lacinia elementum ex, eget gravida mi varius id.
   `,
-  categories: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Curabitur et magna eu libero sodales vestibulum"]
+  categories: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit", "Curabitur et magna eu libero sodales vestibulum"],
+  tags: ["Nullam", "Curabitur", "Vestibulum"]
 }
 
 export default class App extends React.Component {

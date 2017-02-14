@@ -1,5 +1,5 @@
-import Layout from "./Layout";
+import implementLayout from "./Layout";
 import Section from "./Section";
 import Placeholder from "./Placeholder";
 
-export {Layout, Section, Placeholder};
+export {implementLayout, Section, Placeholder};

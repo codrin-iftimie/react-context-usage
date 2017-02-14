@@ -1,11 +1,11 @@
 import React from "react";
-import {Layout, Section, Placeholder} from "../../lib";
-import {ArticleTitle, ArticleDescription, ArticleCategories} from "../";
+import {implementLayout, Section, Placeholder} from "../../lib";
+import {ArticleTitle, ArticleDescription, ArticleCategories, ArticleTags} from "../";
 
-export default class ArticleLayout extends React.Component {
+class ArticleLayout extends React.Component {
   render() {
     return (
-      <Layout components={this.props.children}>
+      <article>
         <Section>
           <Placeholder for={ArticleTitle} />
           <Placeholder for={ArticleDescription} />
@@ -13,24 +13,27 @@ export default class ArticleLayout extends React.Component {
         <Section>
           <Placeholder for={ArticleCategories} />
         </Section>
-      </Layout>
+      </article>
     );
   }
 }
 
-
-export class ArticleLayout2 extends React.Component {
+class ArticleLayoutMinor extends React.Component {
   render() {
     return (
-      <Layout components={this.props.children}>
+      <div>
         <Section>
           <Placeholder for={ArticleDescription} />
         </Section>
         <Section>
           <Placeholder for={ArticleTitle} />
+          <Placeholder for={ArticleTags} />
           <p>Static stuff</p>
         </Section>
-      </Layout>
+      </div>
     );
   }
 }
+
+export default implementLayout(ArticleLayout);
+export const ArticleLayout2 = implementLayout(ArticleLayoutMinor);

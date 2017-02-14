@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Layout extends React.Component {
+export class Layout extends React.Component {
   getChildContext() {
     return {
       components: this.props.components
@@ -14,4 +14,14 @@ export default class Layout extends React.Component {
 
 Layout.childContextTypes = {
   components: React.PropTypes.node
+}
+
+export default function implementLayout(Component) {
+  return function LayoutImplementor(props) {
+    return (
+      <Layout components={props.children}>
+        <Component />
+      </Layout>
+    );
+  }
 }

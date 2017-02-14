@@ -18,6 +18,7 @@ export default class Article extends React.Component {
           {article.description}
         </ArticleDescription>
         <ArticleCategories items={article.categories} />
+        <ArticleTags items={article.tags} />
       </Layout>
     )
   }
@@ -43,4 +44,8 @@ export function ArticleCategories(props) {
       </ul>
     </div>
   )
+}
+
+export function ArticleTags(props) {
+  return <ArticleCategories title="tags" items={props.items} />
 }
