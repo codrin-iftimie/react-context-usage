@@ -1,6 +1,6 @@
 import React from "react";
 
-export class Layout extends React.Component {
+export class Layout extends React.PureComponent {
   getChildContext() {
     return {
       components: this.props.components

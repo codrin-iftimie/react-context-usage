@@ -20,13 +20,34 @@ const article = {
 }
 
 export default class App extends React.Component {
+  constructor(...args) {
+    super(...args);
+
+    this.state = {
+      overwrite: false
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        overwrite: true
+      })
+    }, 2000)
+  }
   render() {
+    let overwrite = null;
+
+    if (this.state.overwrite) {
+      overwrite = <ArticleTitle text={article.alternativeText}/>
+
+    }
+
     return (
       <div className="App">
         <Article article={article} layout={ArticleLayout} />
         <hr />
         <Article article={article} layout={ArticleLayout2}>
-          <ArticleTitle text={article.alternativeText}/>
+          {overwrite}
         </Article>
       </div>
     );

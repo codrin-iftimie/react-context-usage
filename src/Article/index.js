@@ -2,7 +2,7 @@ import React from "react";
 
 import {ExtendDefaults} from "../lib"
 
-export default class Article extends React.Component {
+export default class Article extends React.PureComponent {
   render() {
     const article = this.props.article;
 
