@@ -2,30 +2,44 @@ import React from "react";
 
 export default class Article extends React.Component {
   render() {
+    const article = this.props.article;
+
+    if (!article) {
+      return null;
+    }
+
     return (
       <article>
-        <h1>Article title</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet venenatis turpis,
-          id convallis augue. Mauris rutrum sagittis arcu, at aliquam leo lacinia in. Etiam
-          pellentesque magna et odio pellentesque dictum. Morbi sollicitudin cursus urna,
-          sit amet vehicula quam tristique a. Curabitur et magna eu libero sodales vestibulum
-          at vel augue. Aenean feugiat posuere auctor. Sed non nisi sodales, lobortis tortor non,
-          pretium magna. Nullam rhoncus nulla sed massa pulvinar pellentesque. Phasellus auctor
-          pellentesque quam. Sed elementum, lectus non tempor malesuada, risus massa consectetur tellus,
-          sed vehicula augue ipsum et ligula. In lacinia elementum ex, eget gravida mi varius id.
-          Fusce tempus pretium est ut mattis.
-        </p>
+        <ArticleTitle text={article.title} />
+        <ArticleDescription>
+          {article.description}
+        </ArticleDescription>
         <side>
-          <h4>Categories</h4>
-          <ul>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Proin sit amet venenatis turpis</li>
-            <li>Morbi sollicitudin cursus urna</li>
-            <li>Sed non nisi sodales</li>
-          </ul>
+          <ArticleCategories items={article.categories} />
         </side>
       </article>
     )
   }
+}
+
+export function ArticleTitle(props) {
+  return <h1>{props.text}</h1>;
+}
+
+export function ArticleDescription(props) {
+  return <p>{props.children}</p>;
+}
+
+function renderCategory(item, index) {
+  return <li key={index}>{item}</li>
+}
+export function ArticleCategories(props) {
+  return (
+    <div>
+      <h4>{props.title || "Categories"}</h4>
+      <ul>
+        {props.items.map(renderCategory, this)}
+      </ul>
+    </div>
+  )
 }
