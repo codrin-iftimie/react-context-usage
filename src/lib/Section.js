@@ -1,7 +1,7 @@
 import React from "react";
 
-export default class Layout extends React.Component {
+export default class Section extends React.Component {
   render() {
-    return this.props.children;
+    return <span>{this.props.children}</span>
   }
 }

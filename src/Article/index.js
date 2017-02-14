@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default class Article extends React.Component {
   render() {
     const article = this.props.article;
@@ -8,16 +9,16 @@ export default class Article extends React.Component {
       return null;
     }
 
+    const Layout = this.props.layout;
+
     return (
-      <article>
+      <Layout>
         <ArticleTitle text={article.title} />
         <ArticleDescription>
           {article.description}
         </ArticleDescription>
-        <side>
-          <ArticleCategories items={article.categories} />
-        </side>
-      </article>
+        <ArticleCategories items={article.categories} />
+      </Layout>
     )
   }
 }

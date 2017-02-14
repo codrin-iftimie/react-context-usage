@@ -1,6 +1,6 @@
 import React from "react";
 import Article from "./Article";
-
+import ArticleLayout, {ArticleLayout2} from "./Article/layouts";
 
 const article = {
   title: "Article title",
@@ -21,7 +21,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Article article={article} />
+        <Article article={article} layout={ArticleLayout} />
+        <hr />
+        <Article article={article} layout={ArticleLayout2} />
       </div>
     );
   }
