@@ -1,9 +1,10 @@
 import React from "react";
-import Article from "./Article";
+import Article, {ArticleTitle} from "./Article";
 import ArticleLayout, {ArticleLayout2} from "./Article/layouts";
 
 const article = {
   title: "Article title",
+  alternativeText: "Alternative article title",
   description: `
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet venenatis turpis,
     id convallis augue. Mauris rutrum sagittis arcu, at aliquam leo lacinia in. Etiam
@@ -24,7 +25,9 @@ export default class App extends React.Component {
       <div className="App">
         <Article article={article} layout={ArticleLayout} />
         <hr />
-        <Article article={article} layout={ArticleLayout2} />
+        <Article article={article} layout={ArticleLayout2}>
+          <ArticleTitle text={article.alternativeText}/>
+        </Article>
       </div>
     );
   }

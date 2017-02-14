@@ -1,5 +1,6 @@
 import React from "react";
 
+import {ExtendDefaults} from "../lib"
 
 export default class Article extends React.Component {
   render() {
@@ -9,16 +10,21 @@ export default class Article extends React.Component {
       return null;
     }
 
+    let defaults = [
+      <ArticleTitle text={article.title} />,
+      <ArticleDescription>
+        {article.description}
+      </ArticleDescription>,
+      <ArticleCategories items={article.categories} />,
+      <ArticleTags items={article.tags} />
+    ];
+    defaults = ExtendDefaults(defaults, this.props.children);
+
     const Layout = this.props.layout;
 
     return (
       <Layout>
-        <ArticleTitle text={article.title} />
-        <ArticleDescription>
-          {article.description}
-        </ArticleDescription>
-        <ArticleCategories items={article.categories} />
-        <ArticleTags items={article.tags} />
+        {defaults}
       </Layout>
     )
   }
