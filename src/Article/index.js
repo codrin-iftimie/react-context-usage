@@ -1,6 +1,6 @@
 import React from "react";
 
-import {ExtendDefaults} from "../lib"
+import {extendDefaults} from "../lib/Layout"
 
 export default class Article extends React.PureComponent {
   render() {
@@ -18,13 +18,12 @@ export default class Article extends React.PureComponent {
       <ArticleCategories items={article.categories} />,
       <ArticleTags items={article.tags} />
     ];
-    defaults = ExtendDefaults(defaults, this.props.children);
 
     const Layout = this.props.layout;
 
     return (
       <Layout>
-        {defaults}
+        {extendDefaults(defaults, this.props.children)}
       </Layout>
     )
   }

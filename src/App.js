@@ -1,6 +1,7 @@
 import React from "react";
 import Article, {ArticleTitle} from "./Article";
 import ArticleLayout, {ArticleLayout2} from "./Article/layouts";
+import ArticleForm from './Form';
 
 const article = {
   title: "Article title",
@@ -24,8 +25,11 @@ export default class App extends React.Component {
     super(...args);
 
     this.state = {
-      overwrite: false
+      overwrite: false,
+      article
     };
+
+    this.onChange = this.onChange.bind(this);
   }
   componentDidMount() {
     setTimeout(() => {
@@ -36,6 +40,7 @@ export default class App extends React.Component {
   }
   render() {
     let overwrite = null;
+    const article = this.state.article;
 
     if (this.state.overwrite) {
       overwrite = <ArticleTitle text={article.alternativeText}/>
@@ -49,7 +54,16 @@ export default class App extends React.Component {
         <Article article={article} layout={ArticleLayout2}>
           {overwrite}
         </Article>
+        <ArticleForm article={article} onChange={this.onChange} />
       </div>
     );
+  }
+
+  onChange(fieldName, ev) {
+    const value = ev.target.value;
+    this.setState({
+      article: Object.assign({}, this.state.article, {[fieldName]: value})
+    })
+    this.forceUpdate();
   }
 }

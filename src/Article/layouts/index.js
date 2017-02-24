@@ -1,5 +1,5 @@
 import React from "react";
-import {implementLayout, Section, Placeholder} from "../../lib";
+import {implementLayout, Section, Placeholder} from "../../lib/Layout";
 import {ArticleTitle, ArticleDescription, ArticleCategories, ArticleTags} from "../";
 
 class ArticleLayout extends React.Component {

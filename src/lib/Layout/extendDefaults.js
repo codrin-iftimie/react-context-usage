@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function ExtendDefaults(defaults, children) {
+export default function extendDefaults(defaults, children) {
   React.Children.forEach(children, (child) => {
     defaults.forEach((defaultComponent, index) => {
       if (defaultComponent.type === child.type) {
